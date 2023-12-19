@@ -1,16 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900&display=swap');
 *{
   margin: 0;
   padding: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  box-sizing: border-box;
 }
 
 :root{
   --bg1: #313131;
+  --bg2: #616161;
 }
 
 
 /* Hedaer */
 .header__body{
-  height: 80px;
+  height: 100px;
   display: flex;
   justify-content: center;
   padding: 16px 0;
@@ -31,19 +35,63 @@
 
 .search__body{
   background-color: var(--bg1);
-  color: aliceblue;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 30px 0;
 }
 .search__container{
   width: 1200px;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/*Pokemons Seacrh*/
+.search__title{
+  font-size: 4rem;
+}
+.form__text{
+  width: 300px;
+  height: 40px;
+  padding: 0 20px ;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+.form__submit{
+  height: 40px;
+  width: 40px;
+  background-color: rgb(236, 48, 48);
+  border-radius: 4px;
+  transition: all .3s ease-in-out;
+}
+.form__submit:hover{
+  background-color: rgb(253, 161, 161);
+}
+
+.form_sumbit--icon{
+  color: white;
+  font-size: 1.2rem;
+}
+
+/*Pokemons */
 .pokemons{
-  margin-top: 30px;
-  margin-left: 10px;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 40px;
+}
+.pokemons__container{
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+.poke__img{
+  width: 300px;
+}
+
+.pokemons__history{
+  height: 400px;
+  overflow-y: auto;
 }

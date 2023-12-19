@@ -4,6 +4,7 @@ let pokesec= document.querySelector('.pokemons');
 let pokeSearch = document.querySelector('.poke-search');
 let pokeText = document.querySelector('.poke-text');
 
+
 pokeSearch.addEventListener('click', (e) => {
   e.preventDefault();
   let pokeName = pokeText.value;
@@ -12,20 +13,25 @@ pokeSearch.addEventListener('click', (e) => {
 
 async function printPokes (poke){
   const response = await llamadaPokeAPI(poke);
-  const id =  response.id;
+  const {id, weight, height} = response;
   const name = response.forms[0].name;
-  const img = response.sprites.front_default;
-
-  let div = document.createElement('div');
-  div.innerHTML = `
-    <img src="${img}" alt="imagen_pokemon_${name}">
+  const img = response.sprites.other["official-artwork"].front_default;
+  
+  let pokediv = document.querySelector(".pokemones__poke");
+  let pokehistory = document.querySelector(".pokemons__history");
+  let pokedivhistory = document.createElement("div");
+  let PokeStructure = `
+    <img src="${img}" alt="imagen_pokemon_${name}" class="poke__img">
     <p>Numero: ${id}</p>
     <p>Nombre: ${name}</p>
-  `
+    <p>Height: ${height}</p>
+    <p>Weight: ${weight}</p>
+  `  
+  pokediv.innerHTML = PokeStructure;
+  pokedivhistory.innerHTML = PokeStructure;
 
-  pokesec.appendChild(div); 
-  
-  return console.log(img, id, name, div)
+  pokehistory.appendChild(pokedivhistory);
+  return ; 
 }
 
 
