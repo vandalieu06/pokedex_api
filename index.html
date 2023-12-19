@@ -12,10 +12,10 @@
 
   <!-- HEADER -->
 
-  <header class="header__body">
+  <header class="header header__body">
     <div class="header__container">
-      <img src="./assets/pokeball.png" alt="" class="poke__logo--img">
-      <img src="./assets/logo.png" alt="" class="poke__logo--text"<>
+      <img src="./assets/pokeball.png" alt="" class="header__logo--img">
+      <img src="./assets/logo.png" alt="" class="header__logo--text"<>
     </div>
   </header>
   
@@ -25,25 +25,36 @@
     <div class="search__container">
       <h2 class="search__title">Nombre o número</h2>
       <form class="search__form">
-        <input type="text" class="poke-text form__text" placeholder="10">
-        <button class="poke-search form__submit">
+        <input type="text" class="search__form--text" placeholder="10">
+        <button class="search__form--submit">
           <i class='bx bx-search form_sumbit--icon'></i>
         </button>
       </form>
     </div>
   </section>
   
+  <!-- FILTROS -->
+
+  <section class="filtrer__body">
+    <div class="filtrer__container">
+
+    </div>
+  </section>
+
   <!-- POKEMONS -->
 
-  <section class="pokemons">
-    <div class="pokemons__container">
-      <div class="pokemones__poke">
+  <section class="pokedex pokedex__body">
+    <div class="pokedex__container">
+      <div class="pokedex__pokemon">
         <!-- JS POKE INFO -->
       </div>
 
-      <div class="pokemons__history">
-        <h3>HISTORIAL</h3>
-        <!-- JS HISTORY SEARCH POKEMONS -->
+      <div class="pokedex__history">
+        <h2>HISTORIAL</h2>
+        <i class='bx bx-chevron-right pokedex__history--icon'></i>
+        <div class="pokedex__pokes">
+          <!-- JS HISTORY SEARCH POKEMONS -->
+        </div>
       </div>
     </div>
   </section>

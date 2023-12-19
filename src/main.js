@@ -1,9 +1,10 @@
 import {llamadaPokeAPI} from "./api.js";
 
-let pokesec= document.querySelector('.pokemons');
-let pokeSearch = document.querySelector('.poke-search');
-let pokeText = document.querySelector('.poke-text');
-
+let pokesec= document.querySelector('.pokedex__container');
+let pokeText = document.querySelector('.search__form--text');
+let pokeSearch = document.querySelector('.search__form--submit');
+let pokehistory = document.querySelector(".pokedex__pokes");
+let sectionHistory = document.querySelector(".pokedex__history");
 
 pokeSearch.addEventListener('click', (e) => {
   e.preventDefault();
@@ -17,24 +18,43 @@ async function printPokes (poke){
   const name = response.forms[0].name;
   const img = response.sprites.other["official-artwork"].front_default;
   
-  let pokediv = document.querySelector(".pokemones__poke");
-  let pokehistory = document.querySelector(".pokemons__history");
-  let pokedivhistory = document.createElement("div");
-  let PokeStructure = `
-    <img src="${img}" alt="imagen_pokemon_${name}" class="poke__img">
-    <p>Numero: ${id}</p>
-    <p>Nombre: ${name}</p>
-    <p>Height: ${height}</p>
-    <p>Weight: ${weight}</p>
+  //PONER POKEMON EN LA WEB
+  let pokediv = document.querySelector(".pokedex__pokemon");
+  let pokeStructure = `
+    <img src="${img}" alt="imagen_pokemon_${name}" class="pokedex__img">
+    <div class="pokedex__info">
+      <p>Numero: ${id}</p>
+      <p>Nombre: ${name}</p>
+      <p>Height: ${height}</p>
+      <p>Weight: ${weight}</p>
+    </div>
   `  
-  pokediv.innerHTML = PokeStructure;
-  pokedivhistory.innerHTML = PokeStructure;
+  pokediv.innerHTML = pokeStructure;
 
-  pokehistory.appendChild(pokedivhistory);
-  return ; 
+  //CREAR HISTORIAL DE POKEMONS BUSCADOS
+  let pokeDivHistory = document.createElement("div");
+  let pokeStructure2 = `
+    <img src="${img}" alt="imagen_pokemon_${name}" class="pokedex__history--pokes">
+    <div> 
+      <p>Numero: ${id}</p>
+      <p>Nombre: ${name}</p>
+    </div>
+  `  
+  pokeDivHistory.setAttribute("class", "pokedex__history--div")
+  pokeDivHistory.innerHTML = pokeStructure2;
+
+  pokehistory.appendChild(pokeDivHistory);
+  return
 }
 
+let iconClose = document.querySelector(".pokedex__history--icon");
 
+iconClose.addEventListener("click", () => {
+  sectionHistory.classList.add("ocultar")
+  setTimeout(() => {
+    sectionHistory.classList.add("ocultar2")
+  }, 1000)
+})
 // Escibir 20 pokemons RANDOM 
 
 // async function printPokes (poke){
